@@ -1,2 +1,4 @@
 require "rspec"
-Dir[File.dirname(__FILE__) + '/lib/set-1/*.rb'].each {|file| require file }
+require_relative '../lib/set-1/01-hex-to-base-64'
+require_relative '../lib/set-1/02-fixed-xor'
+require_relative '../lib/set-1/03-single-byte-xor-cypher'
