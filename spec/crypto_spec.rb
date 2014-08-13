@@ -29,6 +29,17 @@ describe DecryptSingleXOR do
 
     expect(@encrypted.ranked_solutions[0][0]).to eq("X")
     expect(@encrypted.ranked_solutions[0][2]).to eq("Cooking MC's like a pound of bacon")
+  end
+end
 
+describe RepeatingKeyXOR do
+  it "should take a string to encrypt and a key, then use repeating XOR to encrypt the string" do
+    string = "Burning 'em, if you ain't quick and nimble
+I go crazy when I hear a cymbal"
+    key = "ICE"
+
+    @to_encrypt = RepeatingKeyXOR.new(string, key)
+
+    expect(@to_encrypt.encrypt).to eq("0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f")
   end
 end
