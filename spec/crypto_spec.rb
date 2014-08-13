@@ -25,7 +25,7 @@ describe DecryptSingleXOR do
   it "should take an encrypted string (hex) and decrypt it assuming the key is a single letter" do
     encrypted = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
 
-    @encrypted = DecryptSingleXOR.new(encrypted)
+    @encrypted = DecryptSingleXOR.new(encrypted, ('A'..'z').to_a)
 
     expect(@encrypted.ranked_solutions[0][0]).to eq("X")
     expect(@encrypted.ranked_solutions[0][2]).to eq("Cooking MC's like a pound of bacon")

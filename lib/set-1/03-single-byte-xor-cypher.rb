@@ -5,8 +5,9 @@
 # given = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
 
 class DecryptSingleXOR
-  def initialize(hex_string)
+  def initialize(hex_string, test_array)
     @hex = hex_string
+    @test_array = test_array
   end
 
   def ranked_solutions
@@ -19,13 +20,9 @@ class DecryptSingleXOR
 
   private
 
-  def letter_array
-    ('A'..'z').to_a
-  end
-
   def potential_solutions
     possible_solutions = []
-    letter_array.each do |letter|
+    @test_array.each do |letter|
       possible_solutions << [letter, fixed_xor(hex_decode, letter)]
     end
     possible_solutions
@@ -35,7 +32,7 @@ class DecryptSingleXOR
     empty = ""
     x = 0
     given.each_byte do |byte|
-      empty << (byte ^ xor.bytes.pop)
+      empty << (byte ^ xor.to_s.bytes.pop)
       x += 1
     end
     empty
@@ -47,27 +44,5 @@ class DecryptSingleXOR
 
 end
 
-#
-#
-#
-#
-# caps = ('A'..'z').to_a
-# # caps << ('A'..'Z').to_a
-#
-#
-#
-# possible_solutions = []
-# with_count = []
-#
-# caps.each do |letter|
-#   possible_solutions << [letter, fixed_xor(decoded, letter)]
-# end
-#
-# p possible_solutions
-#
-#
-#
-# new = with_count.sort_by { |solution| solution[1] }.reverse
-# p '*'*80
-# p new
-#
+# @encrypted = DecryptSingleXOR.new("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736")
+# p @encrypted.ranked_solutions[0]
