@@ -32,6 +32,18 @@ describe DecryptSingleXOR do
   end
 end
 
+describe DetectSingleCharXOR do
+  it "should take a string and detect which character was used to encrypt it" do
+    filepath = "/Users/seansmith/gSchoolWork/side-projects/matasano-crypto/lib/set-1/long-string"
+
+    potential_chars = (0..9).to_a
+
+    @detect = DetectSingleCharXOR.new(filepath, potential_chars)
+
+    expect(@detect.ranked_solutions[0]).to eq([5, 17, "Now that the party is jumping\n"])
+  end
+end
+
 describe RepeatingKeyXOR do
   it "should take a string to encrypt and a key, then use repeating XOR to encrypt the string" do
     string = "Burning 'em, if you ain't quick and nimble
@@ -52,5 +64,19 @@ describe Hamming do
     @hamming = Hamming.new(string1, string2)
 
     expect(@hamming.distance).to eq(37)
+  end
+end
+
+describe ParseString do
+  it "should split a long string into an array on the newlines" do
+    filepath = "/Users/seansmith/gSchoolWork/side-projects/matasano-crypto/spec/test_string.rb"
+
+    @file = ParseString.new(filepath)
+
+    split_file = @file.split_by_newline
+
+    expect(split_file[0]).to eq("hello there")
+    expect(split_file[1]).to eq("you mofo")
+    expect(split_file[2]).to eq("how are things")
   end
 end

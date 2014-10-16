@@ -31,7 +31,7 @@ class DecryptSingleXOR
     empty = ""
     x = 0
     given.each_byte do |byte|
-      empty << (byte ^ xor.bytes.pop)
+      empty << (byte ^ xor.to_s.bytes.pop)
       x += 1
     end
     empty
@@ -42,5 +42,3 @@ class DecryptSingleXOR
   end
 
 end
-
-
