@@ -27,8 +27,8 @@ describe DecryptSingleXOR do
 
     @encrypted = DecryptSingleXOR.new(encrypted, ('A'..'z').to_a)
 
-    expect(@encrypted.ranked_solutions[0][0]).to eq("X")
     expect(@encrypted.ranked_solutions[0][2]).to eq("Cooking MC's like a pound of bacon")
+    expect(@encrypted.ranked_solutions[0][0]).to eq("X")
   end
 end
 

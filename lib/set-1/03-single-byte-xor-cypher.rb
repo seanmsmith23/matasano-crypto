@@ -1,8 +1,7 @@
+require 'awesome_print'
+require 'byebug'
+
 # http://cryptopals.com/sets/1/challenges/3/
-
-# given 1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736
-
-# given = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
 
 class DecryptSingleXOR
   def initialize(hex_string, test_array)
@@ -18,8 +17,6 @@ class DecryptSingleXOR
     with_count.sort_by { |solution| solution[1] }.reverse
   end
 
-  private
-
   def potential_solutions
     possible_solutions = []
     @test_array.each do |letter|
@@ -28,11 +25,13 @@ class DecryptSingleXOR
     possible_solutions
   end
 
+  private
+
   def fixed_xor(given, xor)
     empty = ""
     x = 0
     given.each_byte do |byte|
-      empty << (byte ^ xor.to_s.bytes.pop)
+      empty << (byte ^ xor.bytes.pop)
       x += 1
     end
     empty
@@ -44,5 +43,4 @@ class DecryptSingleXOR
 
 end
 
-# @encrypted = DecryptSingleXOR.new("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736")
-# p @encrypted.ranked_solutions[0]
+
