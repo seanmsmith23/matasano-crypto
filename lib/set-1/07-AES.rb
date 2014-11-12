@@ -43,12 +43,3 @@ class AESinECB
   end
 
 end
-
-# filepath = "/Users/seansmith/gSchoolWork/side-projects/matasano-crypto/lib/set-1/07-file"
-#
-# base =
-# cipher = OpenSSL::Cipher.new('AES-128-ECB')
-#
-# decrypted = cipher.decrypt
-# decrypted.key = "YELLOW SUBMARINE"
-# ap decrypted.update(base) + decrypted.final
