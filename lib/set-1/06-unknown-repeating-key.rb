@@ -21,7 +21,6 @@ class UnknownRepeatingKeyXOR
 
   def repeating_key_xor_decryption(key)
     split_key = key.split('')
-    @bytes
     x = 0
     final = ""
     until @bytes == []
