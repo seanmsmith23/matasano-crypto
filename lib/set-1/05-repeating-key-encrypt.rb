@@ -1,4 +1,4 @@
-class RepeatingKeyXOR
+class BreakRepeatingKeyXOR
 
   def initialize(string, key)
     @string = string
